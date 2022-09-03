@@ -22,7 +22,7 @@ namespace Application
 
             services.AddScoped<ProgramingLanguageBusinessRules>();
 
-            //services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CacheRemovingBehavior<,>));
