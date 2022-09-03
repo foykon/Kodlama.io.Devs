@@ -1,4 +1,4 @@
-﻿using Application.Features.Brands.Models;
+﻿using Application.Features.ProgramingLanguages.Models;
 using Application.Features.ProgramingLanguages.Commands.CreateProgramingLanguage;
 using Application.Features.ProgramingLanguages.Commands.DeleteProgramingLanguage;
 using Application.Features.ProgramingLanguages.Commands.UpdateProgramingLanguage;
@@ -12,7 +12,7 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BrandsController : BaseController
+    public class ProgramingLanguageController : BaseController
     {
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] CreateProgramingLanguageCommand createProgramingLanguageCommand)

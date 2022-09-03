@@ -1,4 +1,4 @@
-﻿using Application.Features.Brands.Models;
+﻿using Application.Features.ProgramingLanguages.Models;
 using Application.Services.Repositories;
 using AutoMapper;
 using Core.Application.Requests;
@@ -17,12 +17,12 @@ namespace Application.Features.ProgramingLanguages.Queries.GetListProgramingLang
     {
         public PageRequest PageRequest { get; set; }
 
-        public class GetListBrandQueryHandler : IRequestHandler<GetListProgramingLanguageQuery, ProgramingLanguageListModel>
+        public class GetListProgramingLanguageQueryHandler : IRequestHandler<GetListProgramingLanguageQuery, ProgramingLanguageListModel>
         {
             private readonly IProgramingLanguageRepository _programingLanguageRepository;
             private readonly IMapper _mapper;
 
-            public GetListBrandQueryHandler(IProgramingLanguageRepository programingLanguageRepository, IMapper mapper)
+            public GetListProgramingLanguageQueryHandler(IProgramingLanguageRepository programingLanguageRepository, IMapper mapper)
             {
 
                 _programingLanguageRepository = programingLanguageRepository;
@@ -32,11 +32,11 @@ namespace Application.Features.ProgramingLanguages.Queries.GetListProgramingLang
 
             public async Task<ProgramingLanguageListModel> Handle(GetListProgramingLanguageQuery request, CancellationToken cancellationToken)
             {
-                IPaginate<ProgramingLanguage> brands = await _programingLanguageRepository.GetListAsync(index: request.PageRequest.Page, size: request.PageRequest.PageSize);
+                IPaginate<ProgramingLanguage> programingLanguages = await _programingLanguageRepository.GetListAsync(index: request.PageRequest.Page, size: request.PageRequest.PageSize);
 
-                ProgramingLanguageListModel mappedProgramingALnguageListModel = _mapper.Map<ProgramingLanguageListModel>(brands);
+                ProgramingLanguageListModel mappedProgramingLanguageListModel = _mapper.Map<ProgramingLanguageListModel>(programingLanguages);
 
-                return mappedProgramingALnguageListModel;
+                return mappedProgramingLanguageListModel;
             }
         }
     }

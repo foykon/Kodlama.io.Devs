@@ -1,4 +1,4 @@
-﻿using Application.Features.Brands.Models;
+﻿using Application.Features.ProgramingLanguages.Models;
 using Application.Features.ProgramingLanguages.Dtos;
 using Application.Features.ProgramingLanguages.Queries.GetListProgramingLanguage;
 using Application.Features.ProgramingLanguages.Rules;

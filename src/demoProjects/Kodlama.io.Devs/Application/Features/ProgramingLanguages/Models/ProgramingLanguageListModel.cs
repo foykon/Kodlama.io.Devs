@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Brands.Models
+namespace Application.Features.ProgramingLanguages.Models
 {
     public class ProgramingLanguageListModel : BasePageableModel
     {
