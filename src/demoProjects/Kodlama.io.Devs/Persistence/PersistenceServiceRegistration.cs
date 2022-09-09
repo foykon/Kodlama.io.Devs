@@ -22,6 +22,10 @@ namespace Persistence
                                                          configuration.GetConnectionString("KodlamaioDevsConnectionString")));
             services.AddScoped<IProgrammingLanguageRepository, ProgrammingLanguageRepository>();
             services.AddScoped<IProgrammingTechnologyRepository, ProgrammingTechnologyRepository>();
+            services.AddScoped<IGitHubProfileRepository, GithubRepository>();
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IDeveloperRepository, DeveloperRepository>();
 
             return services;
         }
