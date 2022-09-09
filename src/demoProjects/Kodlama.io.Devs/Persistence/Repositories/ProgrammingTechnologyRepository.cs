@@ -10,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace Persistence.Repositories
 {
-    public class ProgrammingLanguageRepository : EfRepositoryBase<ProgrammingLanguage, BaseDbContext>, IProgrammingLanguageRepository
+    public class ProgrammingTechnologyRepository : EfRepositoryBase<ProgrammingTechnology, BaseDbContext>, IProgrammingTechnologyRepository
     {
-        public ProgrammingLanguageRepository(BaseDbContext context) : base(context)
+        public ProgrammingTechnologyRepository(BaseDbContext context) : base(context)
         {
+
         }
     }
 }

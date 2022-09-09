@@ -13,7 +13,8 @@ namespace Persistence.Contexts
     public class BaseDbContext : DbContext
     {
         protected IConfiguration Configuration { get; set; }
-        public DbSet<ProgramingLanguage> ProgramingLanguages { get; set; }
+        public DbSet<ProgrammingLanguage> ProgrammingLanguages { get; set; }
+        public DbSet<ProgrammingTechnology> ProgrammingTechnologies { get; set; }
 
 
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
@@ -30,17 +31,30 @@ namespace Persistence.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ProgramingLanguage>(a =>
+            modelBuilder.Entity<ProgrammingLanguage>(a =>
             {
-                a.ToTable("ProgramingLanguages").HasKey(k => k.Id); //primary key conf.
+                a.ToTable("ProgrammingLanguages").HasKey(k => k.Id); //primary key conf.
                 a.Property(p => p.Id).HasColumnName("Id");
                 a.Property(p => p.Name).HasColumnName("Name");
+                a.HasMany(p => p.ProgrammingTechnologies);
             });
 
 
+            modelBuilder.Entity<ProgrammingTechnology>(a =>
+            {
+                a.ToTable("ProgrammingTechnologies").HasKey(k => k.Id); //primary key conf.
+                a.Property(p => p.Id).HasColumnName("Id");
+                a.Property(p => p.ProgrammingLanguageId).HasColumnName("ProgrammingLanguageId");
+                a.Property(p => p.Name).HasColumnName("Name");
+                a.HasOne(p => p.ProgrammingLanguage);
+            });
 
-            ProgramingLanguage[] programingLanguageEntityseeds = { new(1, "C"), new(2, "C++") };
-            modelBuilder.Entity<ProgramingLanguage>().HasData(programingLanguageEntityseeds);
+
+            ProgrammingTechnology[] programmingTechnologyEntityseeds = { new(1,2,".NET"), new(2,2, "WPF") };
+            modelBuilder.Entity<ProgrammingTechnology>().HasData(programmingTechnologyEntityseeds);
+
+            ProgrammingLanguage[] programmingLanguageEntityseeds = { new(1, "C"), new(2, "C#") };
+            modelBuilder.Entity<ProgrammingLanguage>().HasData(programmingLanguageEntityseeds);
 
 
         }

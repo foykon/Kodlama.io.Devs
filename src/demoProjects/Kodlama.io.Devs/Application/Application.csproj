@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\ProgramingLanguages\Constants\" />
+    <Folder Include="Features\ProgrammingLanguages\Constants\" />
+    <Folder Include="Features\ProgrammingTechnologies\Constants\" />
+    <Folder Include="Features\ProgrammingTechnologies\Rules\" />
   </ItemGroup>
 
   <ItemGroup>
