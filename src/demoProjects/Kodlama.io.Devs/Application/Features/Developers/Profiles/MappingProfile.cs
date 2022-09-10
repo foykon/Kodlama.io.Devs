@@ -1,4 +1,5 @@
 ﻿using Application.Features.Developers.Commands.CreateDeveloper;
+using Application.Features.Developers.Commands.LoginDeveloper;
 using Application.Features.Developers.Dtos;
 using AutoMapper;
 using Core.Security.JWT;
@@ -15,6 +16,7 @@ namespace Application.Features.Developers.Profiles
     {
         public MappingProfile()
         {
+            //CreateMap<Developer, LoginDeveloperCommand>().ReverseMap();
             CreateMap<Developer, CreateDeveloperCommand>().ReverseMap();
             CreateMap<TokenDto, AccessToken>().ReverseMap();
         }
